@@ -1,5 +1,4 @@
 Feature: Search for hotel
-
   Scenario Outline: User goes to main page search hotel <name> and check <rating>
     Given Main Booking page opened
     When User type name hotel <name>
@@ -8,4 +7,3 @@ Feature: Search for hotel
     Examples:
       | name                         | rating |
       | "Antonio Old Town Residence" | "8.2"  |
-
