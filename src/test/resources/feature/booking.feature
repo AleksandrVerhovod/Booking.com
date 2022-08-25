@@ -1,6 +1,11 @@
 Feature: Search for hotel
-  Scenario: Search for Antonio Old Town Residence
+
+  Scenario Outline: User goes to main page search hotel <name> and check <rating>
     Given Main Booking page opened
-    When User type name hotel "Antonio Old Town Residence"
+    When User type name hotel <name>
     And Find hotel by "Search"
-    Then Check name "Antonio Old Town Residence" and rating "8.2" respond
+    Then Check hotel name <name> and rating <rating> respond
+    Examples:
+      | name                         | rating |
+      | "Antonio Old Town Residence" | "8.2"  |
+

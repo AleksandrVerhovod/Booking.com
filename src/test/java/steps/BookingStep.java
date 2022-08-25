@@ -42,13 +42,14 @@ public class BookingStep {
         $(By.xpath(searchButton)).shouldBe(Condition.visible).click();
     }
 
-    @Then("Check name {string} and rating {string} respond")
+    @Then("Check hotel name {string} and rating {string} respond")
     public void checkNameAndRatingRespond(String nameHotel, String ratingHotel) {
         String nameHotelXPath = String.format("//div[@id='search_results_table']//div[contains(text(),'%s')]", nameHotel);
         String ratingHotelXPath = String.format("//div[text()='%s']",ratingHotel);
         String actualNameHotel = $(By.xpath(nameHotelXPath)).getText();
         String actualRatingHotel = $(By.xpath(ratingHotelXPath)).getText();
-        Assert.assertEquals(actualNameHotel,nameHotel);
-        Assert.assertEquals(actualRatingHotel,ratingHotel);
+        Assert.assertEquals(actualNameHotel,nameHotel, "Hotel isn't displayed");
+        Assert.assertEquals(actualRatingHotel,ratingHotel, "Rating of hotel incorrect");
     }
+
 }
